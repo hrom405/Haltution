@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "447863816421",
+    "firebase_url": "https://haltution.firebaseio.com",
+    "project_id": "haltution",
+    "storage_bucket": "haltution.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447863816421:android:546f0032a6a5163823540c",
+        "android_client_info": {
+          "package_name": "com.example.haltution"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447863816421-foe8kce9plrh3jrpchfuo85lldqsoq5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxLx2q6yrXXLfTQxhcrxwDaAt6RGz7zi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447863816421-foe8kce9plrh3jrpchfuo85lldqsoq5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
