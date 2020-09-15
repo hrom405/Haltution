@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.haltution.login.CreateNew;
 import com.example.haltution.login.LoginPage;
 
 public class WelCome extends AppCompatActivity {
