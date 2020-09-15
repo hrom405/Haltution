@@ -2,11 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout21"
+    android:id="@+id/hostLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/loginBackgroundColor"
+    tools:context=".login.LoginPage"
+android:background="@color/loginBackgroundColor"
     >
+
 
     <EditText
         android:id="@+id/login_Email"
@@ -40,7 +42,7 @@
         android:textColorHint="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:inputType="textPassword"
-        />
+/>
 
     <Button
         android:id="@+id/login_loginButton"
@@ -53,8 +55,7 @@
         android:text="@string/login"
         android:textColor="#FFFFFF"
         android:background="@color/bg3"
-
-        />
+ />
 
     <TextView
         android:id="@+id/login_createNew"
@@ -66,7 +67,7 @@
         android:layout_marginTop="12dp"
         android:text="@string/account"
         android:textColor="#FFFFFF"
-        />
+       />
 
 
     <TextView
@@ -81,6 +82,7 @@
         android:layout_marginTop="8dp"
         android:paddingLeft="2dp"
         android:paddingTop="2dp"
+
         android:textSize="15dp"
 
         />
@@ -96,7 +98,24 @@
         android:text="  Show Password"
         android:buttonTint="#FFFFFF"
         android:textColor="#FFFFFF"/>
+<!--    <com.google.android.gms.common.SignInButton-->
+<!--        android:id="@+id/HostGoggleSign"-->
+<!--        android:layout_width="250dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignLeft="@+id/HostSignup"-->
+<!--        android:layout_alignStart="@+id/HostSignup"-->
+<!--        android:layout_below="@+id/HostSignup"-->
+
+<!--        android:layout_marginTop="@dimen/margin_10"></com.google.android.gms.common.SignInButton>-->
 
 
+    <ProgressBar
+        android:id="@+id/login_progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
 
 </RelativeLayout>
+

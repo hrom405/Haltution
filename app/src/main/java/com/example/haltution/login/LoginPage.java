@@ -50,7 +50,7 @@ public class LoginPage extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        //CheckBox When true Show Password
+        //Show Password if checkbox is true
         showPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -76,7 +76,7 @@ public class LoginPage extends AppCompatActivity {
         //signUp Page
         createNew.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), CreateNew.class);
+                Intent i = new Intent(getApplicationContext(), signUp.class);
                 startActivity(i);
             }
         });
@@ -117,6 +117,8 @@ public class LoginPage extends AppCompatActivity {
                                     }
                                 } else {
                                     FirebaseUser name = mAuth.getCurrentUser();
+                                    Intent i = new Intent(getApplicationContext(), afterlogin.class);
+                                    startActivity(i);
                                 }
                             }
                         });
