@@ -25,8 +25,8 @@ public class WelCome extends AppCompatActivity {
 
         login = findViewById(R.id.welcome_login);
         submit = findViewById(R.id.welcome_submit);
-        student = findViewById(R.id.welcome_student);
-        teacher = findViewById(R.id.welcome_teacher);
+//        student = findViewById(R.id.welcome_student);
+//        teacher = findViewById(R.id.welcome_teacher);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override

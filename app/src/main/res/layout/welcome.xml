@@ -17,7 +17,7 @@
         android:text="@string/welcome_to_hal"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,49 +32,44 @@
         android:text="@string/are_you_a"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.304" />
 
-    <CheckBox
-        android:id="@+id/welcome_student"
-        android:layout_width="144dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="274dp"
-        android:text="@string/student"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="263dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="364dp">
 
-    <CheckBox
-        android:id="@+id/welcome_teacher"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="274dp"
-        android:text="@string/teacher"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
+
+        <RadioButton
+            android:id="@+id/welcome_student"
+            android:layout_width="144dp"
+            android:layout_height="50dp"
+            android:text="@string/student"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="20sp" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/welcome_submit"
         android:layout_width="182dp"
         android:layout_height="49dp"
         android:text="@string/submit"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="#FFFFFF"
         android:background="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +87,7 @@
         android:text="@string/already_a_member"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
@@ -107,13 +102,28 @@
         android:background="@android:color/holo_blue_dark"
         android:text="@string/sign_in"
         android:textColor="#FFFFFF"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.878" />
+
+    <RadioButton
+        android:id="@+id/welcome_teacher"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="274dp"
+        android:text="@string/teacher"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="false"
-    android:background="@color/loginBackgroundColor"
-    >
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".login.LoginPage"
+android:background="@color/loginBackgroundColor"
     >
 
 
@@ -28,8 +22,6 @@
         android:layout_marginTop="300dp"
         android:allowUndo="true"
         android:backgroundTint="#FFFFFF"
-        android:layout_center="true"
-
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -59,7 +51,7 @@
         android:layout_alignLeft="@+id/login_showPassWord"
         android:layout_alignStart="@+id/login_showPassWord"
         android:layout_below="@+id/login_showPassWord"
-        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginTop="10dp"
         android:text="@string/login"
         android:textColor="#FFFFFF"
         android:background="@color/bg3"
@@ -127,4 +119,3 @@
 
 </RelativeLayout>
 
-</ScrollView>

@@ -16,6 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".login.LoginPage"
+            android:label="login"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".login.ForgetPassWord"
+            android:label="@string/forget_password"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".login.signUp"
+            android:label="sign_up"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
