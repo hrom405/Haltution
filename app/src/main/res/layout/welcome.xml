@@ -1,131 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/welcomeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C1EF6A"
-    tools:context=".WelCome">
+    android:background="@color/bg3"
+    tools:context=".WelCome"
+    android:padding="16dp"
+    >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/Welcome_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/welcome_teacher"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingLeft="20dp"
+            android:paddingRight="@dimen/padding"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:layout_marginRight="@dimen/padding"
+            android:layout_marginLeft="20dp"
+            app:cardBackgroundColor="@color/bg3"
+            >
+
+            <ImageView
+                android:id="@+id/imageTeacher"
+                android:layout_width="137dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/teacherlogo"
+                android:paddingRight="20dp"
+                android:layout_marginRight="20dp"
 
 
-    <TextView
-        android:id="@+id/welcome_textView"
-        android:layout_width="276dp"
-        android:layout_height="65dp"
-        android:gravity="center_horizontal"
-        android:text="@string/welcome_to_hal"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
+                />
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/welcome_textView1"
-        android:layout_width="181dp"
-        android:layout_height="48dp"
-        android:gravity="center_horizontal"
-        android:text="@string/are_you_a"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="263dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="364dp">
-
-
-        <RadioButton
+        <androidx.cardview.widget.CardView
             android:id="@+id/welcome_student"
-            android:layout_width="144dp"
-            android:layout_height="50dp"
-            android:text="@string/student"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="20sp" />
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_alignRight="@+id/welcome_teacher"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/bg3"
+            >
 
-    </RadioGroup>
+            <ImageView
+                android:id="@+id/ItemImageCartID"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/student" />
 
-    <Button
-        android:id="@+id/welcome_submit"
-        android:layout_width="182dp"
-        android:layout_height="49dp"
-        android:text="@string/submit"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461" />
+        </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <TextView
-        android:id="@+id/welcome_textView4"
-        android:layout_width="224dp"
+        android:id="@+id/welcome_loginText"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
         android:text="@string/already_a_member"
-        android:textAlignment="center"
+        android:textSize="25sp"
+
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="20dp"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88" />
+         />
+
+    <TextView
+        android:id="@+id/welcome_studentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="Student"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60dp"
+        android:textSize="25sp"
+        android:layout_below="@+id/Welcome_linearLayout"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/holo_blue_dark"
+        />
+
+    <TextView
+        android:id="@+id/welcome_teacherText"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/Welcome_linearLayout"
+
+        android:text="Teacher"
+        android:textSize="25sp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="@android:color/holo_blue_dark"
+        />
 
     <Button
-        android:id="@+id/welcome_login"
+        android:id="@+id/welcome_loginButton"
         android:layout_width="119dp"
         android:layout_height="37dp"
         android:background="@android:color/holo_blue_dark"
         android:text="@string/sign_in"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.914"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
 
-    <RadioButton
-        android:id="@+id/welcome_teacher"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="274dp"
-        android:text="@string/teacher"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+         />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 
 

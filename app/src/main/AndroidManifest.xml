@@ -19,6 +19,7 @@
         <activity
             android:name=".login.LoginPage"
             android:label="login"
+            android:parentActivityName=".WelCome"
             android:screenOrientation="portrait" >
         </activity>
         <activity
@@ -31,6 +32,15 @@
             android:label="sign_up"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".Student"
+            android:label="Student"
+            android:screenOrientation="portrait" >
+        </activity> <activity
+        android:name=".Teacher"
+        android:label="Teacher"
+        android:screenOrientation="portrait" >
+    </activity>
     </application>
 
 </manifest>

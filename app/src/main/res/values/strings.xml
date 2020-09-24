@@ -12,5 +12,7 @@
     <string name="welcome_to_hal">Welcome to HAL</string>
     <string name="account">Don\'t have an account? create new one</string>
     <string name="minimum_password">Password Length Too Small</string>
+    <string name="name">UserName</string>
+    <string name="EMail">Email</string>
 
 </resources>

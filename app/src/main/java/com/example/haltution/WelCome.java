@@ -4,18 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.haltution.login.LoginPage;
 
 public class WelCome extends AppCompatActivity {
 
-    private Button submit;
     private Button login;
-    private CheckBox student;
-    private CheckBox teacher;
+    private CardView student;
+    private CardView teacher;
 
 
     @Override
@@ -23,10 +22,28 @@ public class WelCome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
 
-        login = findViewById(R.id.welcome_login);
-        submit = findViewById(R.id.welcome_submit);
-//        student = findViewById(R.id.welcome_student);
-//        teacher = findViewById(R.id.welcome_teacher);
+        login = findViewById(R.id.welcome_loginButton);
+        teacher = findViewById(R.id.welcome_teacher);
+        student = findViewById(R.id.welcome_student);
+
+
+        teacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Teacher.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        student.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Student.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
