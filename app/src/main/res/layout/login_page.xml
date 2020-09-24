@@ -6,9 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".login.LoginPage"
-android:background="@color/loginBackgroundColor"
+    android:background="@color/loginBackgroundColor"
     >
 
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="125dp"
+        android:id="@+id/sign_in_google"
+        />
 
     <EditText
         android:id="@+id/login_Email"
@@ -116,6 +124,16 @@ android:background="@color/loginBackgroundColor"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
         android:visibility="gone" />
+
+    <Button
+        android:id="@+id/sign_out_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google_sign_out"
+        android:layout_marginTop="220dp"
+        android:layout_marginLeft="125dp"
+        />
+
 
 </RelativeLayout>
 

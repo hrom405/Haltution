@@ -9,6 +9,7 @@
     tools:context=".WelCome">
 
 
+
     <TextView
         android:id="@+id/welcome_textView"
         android:layout_width="276dp"
