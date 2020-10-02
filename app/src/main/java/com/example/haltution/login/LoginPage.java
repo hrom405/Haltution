@@ -20,7 +20,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
+
 import com.example.haltution.R;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -31,6 +42,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -50,6 +62,15 @@ public class LoginPage extends Activity {
     private String TAG = "LoginPage";
     private Button signOutGoogle;
     private int RC_SIGN_IN = 1001;
+
+    private CallbackManager mCallbackManager;
+    private TextView textViewUser;
+    private LoginButton signInFacebook;
+    private static final String TAG_1 = "FacebookAuthentication";
+    private FirebaseAuth.AuthStateListener authStateListener;
+    private AccessTokenTracker accessTokenTracker;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,6 +203,103 @@ public class LoginPage extends Activity {
             }
         });
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+        textViewUser = findViewById(R.id.text_user);
+        signInFacebook = findViewById(R.id.sign_in_facebook);
+        mCallbackManager = CallbackManager.Factory.create();
+        signInFacebook.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG_1, "onSuccess" + loginResult);
+                handleFacebookToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG_1, "onCancel");
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d(TAG_1, "onSuccess" + error);
+            }
+        });
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user!=null){
+                    updateUI(user);
+                }
+                else {
+                    updateUI(null);
+                }
+            }
+        };
+
+        accessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                if (currentAccessToken==null){
+                    mAuth.signOut();
+                }
+            }
+        };
+
+
+    }
+
+
+    public void  handleFacebookToken(AccessToken token){
+        Log.d(TAG_1, "handleFacebookToken" + token);
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d(TAG_1, "sign in with credential: successful");
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    updateUIforF(user);
+                }else{
+                    Log.d(TAG_1, "sign in with credential: failure", task.getException());
+                    Toast.makeText(LoginPage.this,"Authentication Failed",Toast.LENGTH_SHORT).show();
+                    updateUIforF(null);
+
+                }
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        mCallbackManager.onActivityResult(requestCode, resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+
+
+    private void updateUIforF(FirebaseUser user){
+        if(user != null){
+            textViewUser.setText(user.getDisplayName());
+
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(authStateListener!=null){
+            mAuth.removeAuthStateListener((authStateListener));
+        }
     }
 
     private void signIn() {
@@ -190,18 +308,7 @@ public class LoginPage extends Activity {
     }
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        } else{
-            Toast.makeText(LoginPage.this, "Login Failed", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {

@@ -17,6 +17,7 @@ public class WelCome extends AppCompatActivity {
     private CardView teacher;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -14,5 +14,8 @@
     <string name="minimum_password">Password Length Too Small</string>
     <string name="name">UserName</string>
     <string name="EMail">Email</string>
+    <string name="facebook_app_id">377292649958501</string>
+    <string name="fb_login_protocol_scheme">fb377292649958501</string>
+
 
 </resources>
